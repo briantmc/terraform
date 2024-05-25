@@ -9,6 +9,7 @@ terraform {
 
 provider "google" {
   project = "bubbly-axiom-424401-v6"
+  credentials = ${{ secrets.GCP_SA_KEY }}
 }
 
 resource "google_compute_network" "vpc_network" {
@@ -16,7 +17,6 @@ resource "google_compute_network" "vpc_network" {
   auto_create_subnetworks = false
   mtu                     = 1460
 }
-
 
 resource "google_compute_subnetwork" "default" {
   name          = "my-custom-subnet"
