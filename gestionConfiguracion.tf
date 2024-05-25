@@ -9,7 +9,6 @@ terraform {
 
 provider "google" {
   project = "bubbly-axiom-424401-v6"
-  credentials = file("C:\Users\Briant\Documents\Terraform\bubbly-axiom-424401-v6-15e3650fa08d.json")
 }
 
 resource "google_compute_network" "vpc_network" {
