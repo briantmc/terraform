@@ -21,7 +21,9 @@ jobs:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
     - name: Authenticate to GCP
-      run: gcloud auth activate-service-account --key-file=${{ secrets.GCP_SA_KEY }}
+      env:
+        GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+      run: echo "${{ secrets.GCP_SA_KEY }}" | gcloud auth activate-service-account --key-file=-
 
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v1
